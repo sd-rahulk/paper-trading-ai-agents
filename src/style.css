@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-dark-900 text-slate-200 font-sans antialiased;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.glass-card {
+  @apply bg-dark-800/60 backdrop-blur-md border border-white/10 rounded-2xl;
+}
+
+.glass-card-hover {
+  @apply transition-all duration-300 hover:border-primary-500/50 hover:bg-dark-800/80;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-accent-success;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-dark-600;
+}
