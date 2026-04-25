@@ -119,8 +119,13 @@ const chartOptions = {
             <button class="px-3 py-1 bg-dark-700 rounded-lg text-xs font-medium hover:bg-dark-600 transition-colors">1M</button>
           </div>
         </div>
-        <div class="flex-1 h-64">
-          <Line :data="chartData" :options="chartOptions" />
+        <div class="flex-1 h-64 relative">
+          <Line v-if="store.portfolioHistory.length > 1" :data="chartData" :options="chartOptions" />
+          <div v-else class="absolute inset-0 flex flex-col items-center justify-center bg-white/5 rounded-xl border border-dashed border-white/10">
+            <History :size="32" class="text-slate-700 mb-2 animate-pulse" />
+            <p class="text-slate-500 text-sm font-medium">Collecting initial market data...</p>
+            <p class="text-slate-600 text-[10px] mt-1 italic">The first line will appear in a few minutes.</p>
+          </div>
         </div>
       </div>
 
