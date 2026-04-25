@@ -2,6 +2,7 @@
 import { LayoutDashboard, Zap, History, Settings, Play, Pause, Power } from 'lucide-vue-next'
 import { useTradingStore } from './stores/trading'
 import LoadingScreen from './components/LoadingScreen.vue'
+import { Analytics } from '@vercel/analytics/vue'
 import { onMounted, ref } from 'vue'
 
 const store = useTradingStore()
@@ -15,6 +16,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <Analytics />
   <LoadingScreen v-if="isInitialLoad" />
   
   <div v-else class="flex h-screen bg-dark-900 text-slate-200">
